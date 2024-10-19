@@ -1,95 +1,84 @@
-import { SideBar } from '../components/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '../components/ui/button';
-import { Mouse } from 'lucide-react';
-import { Themes } from '../components/theme-provider';
 import { Contacts } from '../components/contacts';
-
-function Header() {
-  return (
-    <header className="flex justify-between">
-      <div className="tablet:hidden p-2">
-        <SideBar />
-      </div>
-
-      <div className="ml-auto hidden tablet:flex">
-        <Themes />
-      </div>
-    </header>
-  );
-}
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 function IntroductoryText() {
+  const laptopSize = 'md-laptop:border-l md-laptop:pl-6 md-laptop:-mt-[94px] 70-laptop:ml-4';
+  const laptopTextSize = 'sm-laptop:text-lg md-laptop:text-xl 70-laptop:text-2xl laptop:text-3xl';
+  const laptopTextSize2 = 'sm-laptop:text-xl md-laptop:text-2xl 70-laptop:text-3xl laptop:text-4xl';
+  const desktopTextSize = 'sm-desktop:text-2xl md-desktop:text-3xl 70-desktop:text-4xl';
+  const desktopTextSize2 = 'sm-desktop:text-3xl md-desktop:text-4xl 70-desktop:text-5xl';
+
   return (
-    <div className="flex ">
-      <div className="hidden tablet:flex mr-6 border-l tablet:mt-7 laptop:mt-9 70-laptop:ml-6 laptop:mr-4 desktop:mt-14" />
-      <section className="flex flex-col h-fit ml-3 tablet:ml-0 tablet:mt-7 laptop:mt-9 laptop:ml-5 desktop:mt-14 xl-desktop:mt-16 xl-desktop:gap-2">
-        <p className="tablet:text-lg 70-laptop:text-3xl desktop:text-4xl">Hello,</p>
-        <p className="tablet:text-2xl 70-laptop:text-4xl desktop:text-5xl">
-          I’m <span className="font-medium">Igor Soares!</span>
-        </p>
-        <p className="tablet:text-2xl 70-laptop:text-4xl desktop:text-5xl">I work as a Web Developer.</p>
-      </section>
+    <div className={`flex flex-col ${laptopSize} 70-desktop:gap-2`}>
+      <p className={`${laptopTextSize} ${desktopTextSize}`}>Hello,</p>
+      <p className={`${laptopTextSize2} ${desktopTextSize2}`}>
+        I’m <span className="font-medium">Igor Soares!</span>
+      </p>
+      <p className={`${laptopTextSize2} ${desktopTextSize2}`}>I work as a Web Developer.</p>
     </div>
   );
 }
 
 function Footer() {
   return (
-    <footer className="flex flex-col gap-5 tablet:gap-0 items-center justify-center">
-      <Button
-        variant="outline"
-        className="w-2/3 py-8 70-tablet:py-6 rounded-3xl text-md tablet:hidden"
-        size="lg"
-      >
+    <footer className="flex justify-center py-6">
+      <Button variant="outline" className="w-2/3 py-8 xs-laptop:py-6 rounded-3xl text-md" size="lg">
         Contact me
       </Button>
-      <div className="border-b w-full tablet:border-none" />
-      <Mouse />
     </footer>
   );
 }
 
-export function Home() {
+function ProgrammingImage() {
+  const laptopSize =
+    'sm-laptop:h-64 md-laptop:h-80 md-laptop:px-0 md-laptop:-mt-[35px] 70-laptop:h-[350px] 70-laptop:-mt-[100px] laptop:h-[400px] laptop:-mt-[140px] laptop:ml-auto';
+  const desktopSize =
+    'xs-desktop:h-80 sm-desktop:my-auto sm-desktop:h-[420px] md-desktop:h-[480px] 70-desktop:h-[590px] 70-desktop:-mt-[76px] xl-desktop:h-[610px] xl-desktop:-mt-[156px]';
   return (
-    <div className="flex flex-col h-full max-w-[1920px] xl-desktop:mx-auto xl-desktop:border-x">
+    <figure className={`flex justify-center min-h-36 my-auto px-[5%] ${laptopSize} ${desktopSize}`}>
+      <img src="programming-1.svg" alt="Programming illustration" className="w-full h-full" />
+    </figure>
+  );
+}
 
-      <Header />
+export function Home() {
+  const isMdLaptop = useMediaQuery('(min-width: 640px)');
 
-      <div className="flex flex-col h-full tablet:px-[2%] 70-laptop:px-[5%]">
-        <div className="flex items-center tablet:pt-0 pl-6 tablet:items-start">
-          <div className="flex flex-col w-fit items-center gap-2 laptop:gap-3 px-3">
-            <Avatar className="size-24 tablet:size-36 70-laptop:size-48 desktop:size-60 xl-desktop:size-72">
+  return (
+    <div className="flex flex-col h-full max-w-[1920px] px-2 70-laptop:px-[2%] laptop:px-[5%] xl-desktop:mx-auto xl-desktop:border-x">
+      <div className="flex flex-col h-full">
+        <div className="flex items-center">
+          <div className="flex flex-col w-fit items-center gap-2 px-3">
+            <Avatar className="size-24 sm-laptop:size-28 md-laptop:size-36 70-laptop:size-48 xs-desktop:size-32 md-desktop:size-48 70-desktop:size-60 xl-desktop:size-72">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>I</AvatarFallback>
             </Avatar>
 
-            <div className="hidden tablet:flex justify-center">
-              <Contacts />
-            </div>
-
-            <Button
-              variant="outline"
-              className="hidden tablet:flex tablet:py-6 rounded-3xl text-md w-full"
-              size="lg"
-            >
-              Contact me
-            </Button>
+            {isMdLaptop && (
+              <>
+                <div className="flex justify-center">
+                  <Contacts />
+                </div>
+                <Button
+                  variant="outline"
+                  className="flex sm-laptop:py-6 rounded-3xl text-md w-full"
+                  size="lg"
+                >
+                  Contact me
+                </Button>
+              </>
+            )}
           </div>
+
           <IntroductoryText />
         </div>
 
-        <div className="flex justify-center my-auto px-[5%] tablet:px-0 tablet:-mt-[10%] tablet:ml-[25%] 70-laptop:ml-auto desktop:-mt-[5%] xl-desktop:-mt-[10%]">
-          <img
-            src="programming-1.svg"
-            alt=""
-            className="h-80 laptop:h-[360px] desktop:h-[460px] xl-desktop:h-[600px]"
-          />
-        </div>
+        <ProgrammingImage />
       </div>
 
-      <Footer />
-
+      {!isMdLaptop && <Footer />}
     </div>
   );
 }
