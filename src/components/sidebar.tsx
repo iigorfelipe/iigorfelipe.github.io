@@ -1,4 +1,4 @@
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { BriefcaseBusiness, Laptop, Menu, User2 } from 'lucide-react';
 import { Themes } from './theme-provider';
 import { Button } from './ui/button';
@@ -7,11 +7,13 @@ import { Contacts } from './contacts';
 export function SideBar() {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger className="p-2">
         <Menu />
       </SheetTrigger>
 
       <SheetContent side="left" className="flex flex-col pl-2">
+        <SheetTitle className="hidden"></SheetTitle>
+        <SheetDescription className="hidden"></SheetDescription>
         <SheetHeader className="border-b mt-1">
           <Themes />
         </SheetHeader>

@@ -4,16 +4,30 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      mobile: '0px',
-      '70-tablet': '460px',
-      tablet: '640px',
-      '70-laptop': '896px',
-      laptop: '1280px',
-      desktop: '1440px',
-      'xl-desktop': '1600px',
-      '2xl-desktop': '1800px',
+      'xs-laptop': { raw: '(min-width: 460px) and (min-height: 600px)' },
+      'sm-laptop': { raw: '(min-width: 500px) and (min-height: 600px)' },
+      'md-laptop': { raw: '(min-width: 640px) and (min-height: 600px)' },
+      '70-laptop': { raw: '(min-width: 896px) and (min-height: 600px)' },
+      laptop: { raw: '(min-width: 1280px) and (min-height: 600px)' },
+
+      'xs-desktop': { raw: '(min-width: 500px) and (min-height: 800px)' },
+      'sm-desktop': { raw: '(min-width: 640px) and (min-height: 800px)' },
+      'md-desktop': { raw: '(min-width: 896px) and (min-height: 800px)' },
+      '70-desktop': { raw: '(min-width: 1280px) and (min-height: 800px)' },
+      desktop: { raw: '(min-width: 1440px) and (min-height: 800px)' },
+      'xl-desktop': { raw: '(min-width: 1600px) and (min-height: 800px)' },
+      '2xl-desktop': { raw: '(min-width: 1800px) and (min-height: 800px)' },
     },
     extend: {
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 1s ease-in forwards',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -65,4 +79,3 @@ export default {
   },
   plugins: [require('tailwindcss-animate')],
 };
-

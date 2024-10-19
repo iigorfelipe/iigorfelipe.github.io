@@ -16,7 +16,7 @@ export function ToggleGroupDemo({ childrens }: ToggleGroupDemoProps) {
   const [selectedValue, setSelectedValue] = useState('');
 
   return (
-    <ToggleGroup type="single" size="sm">
+    <ToggleGroup type="single" size="sm" className='p-2'>
       {childrens.map(({ children, onClick, tooltip }) => (
         <TooltipDemo
           key={tooltip}
