@@ -28,6 +28,9 @@ export default {
       animation: {
         'fade-in': 'fade-in 1s ease-in forwards',
       },
+      dropShadow: {
+        custom: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

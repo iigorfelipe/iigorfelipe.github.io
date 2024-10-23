@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-export function useIntersectionObserver() {
+const PERCENT_THRESHOLD = 0.1; // 10%
+
+export function useIntersectionObserver(threshold: number = PERCENT_THRESHOLD) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -11,7 +13,7 @@ export function useIntersectionObserver() {
       },
       {
         root: null,
-        threshold: 0.1,
+        threshold: threshold,
       },
     );
 
@@ -24,7 +26,7 @@ export function useIntersectionObserver() {
         observer.unobserve(ref.current);
       }
     };
-  }, [ref]);
+  }, [ref, threshold]);
 
   return { ref, isIntersecting };
 }

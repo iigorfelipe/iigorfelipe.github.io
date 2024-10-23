@@ -1,6 +1,4 @@
-import { MonitorCog, Moon, Sun } from 'lucide-react';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { ToggleGroupDemo } from './toggle-group';
 
 type Theme = 'dark' | 'light' | 'system';
 
@@ -78,33 +76,3 @@ export const useTheme = () => {
 
   return context;
 };
-
-/*
-  *************************************************************
-  *************************************************************
-  *************************************************************
-*/
-
-export function Themes() {
-  const { setTheme } = useTheme();
-
-  const childrens = [
-    {
-      children: <Sun className="h-4 w-4" />,
-      onClick: () => setTheme('light'),
-      tooltip: 'Light Mode',
-    },
-    {
-      children: <Moon className="h-4 w-4" />,
-      onClick: () => setTheme('dark'),
-      tooltip: 'Dark Mode',
-    },
-    {
-      children: <MonitorCog className="h-4 w-4" />,
-      onClick: () => setTheme('system'),
-      tooltip: 'System Theme',
-    },
-  ];
-
-  return <ToggleGroupDemo childrens={childrens} />;
-}

@@ -1,7 +1,17 @@
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { BriefcaseBusiness, Laptop, Menu, User2 } from 'lucide-react';
-import { Themes } from './theme-provider';
+
 import { Button } from './ui/button';
+
+import { Themes } from './header';
 import { Contacts } from './contacts';
 
 export function SideBar() {
