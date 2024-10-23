@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '../components/ui/button';
 import { Contacts } from '../components/contacts';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 function IntroductoryText() {
   const laptopSize = 'md-laptop:border-l md-laptop:pl-6 md-laptop:-mt-[94px] 70-laptop:ml-4';
@@ -45,6 +46,7 @@ function ProgrammingImage() {
 
 export function Home() {
   const isMdLaptop = useMediaQuery('(min-width: 640px)');
+  const { ref, isIntersecting } = useIntersectionObserver(0.5);
 
   return (
     <div className="flex flex-col h-full max-w-[1920px] px-2 70-laptop:px-[2%] laptop:px-[5%] xl-desktop:mx-auto xl-desktop:border-x">
@@ -58,8 +60,9 @@ export function Home() {
 
             {isMdLaptop && (
               <>
-                <div className="flex justify-center">
-                  <Contacts />
+                <div ref={ref} />
+                <div className={`flex justify-center py-1 ${!isIntersecting && 'h-11'}`}>
+                  <Contacts isIntersecting={isIntersecting} />
                 </div>
                 <Button
                   variant="outline"

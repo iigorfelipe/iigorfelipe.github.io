@@ -98,7 +98,7 @@ export function Works() {
                     href={work.githubLink}
                     target="_blank"
                     rel="noopener"
-                    className="flex items-center gap-1"
+                    className="flex items-center gap-1 desktop:gap-2"
                   >
                     <GitHubLogoIcon className="size-5 desktop:size-6" />
                     <span className="sm-laptop:text-sm 70-laptop:text-base xs-desktop:text-base desktop:text-lg">
