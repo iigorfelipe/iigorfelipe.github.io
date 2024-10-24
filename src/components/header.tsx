@@ -59,8 +59,8 @@ function NavBar() {
 
 export function Header() {
   return (
-    <header className="flex justify-between fixed  shadow-sm top-0 left-0 w-full backdrop-blur-md z-10">
-      <div className="sm-laptop:hidden rounded-lg">
+    <header className="flex justify-between fixed xs-laptop:shadow-sm top-0 left-0 w-full xs-laptop:backdrop-blur-md z-10">
+      <div className="sm-laptop:hidden rounded-lg backdrop-blur-md">
         <SideBar />
       </div>
 

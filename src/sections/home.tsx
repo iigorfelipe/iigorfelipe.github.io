@@ -49,7 +49,7 @@ export function Home() {
   const { ref, isIntersecting } = useIntersectionObserver(0.5);
 
   return (
-    <div className="flex flex-col h-full max-w-[1920px] px-2 70-laptop:px-[2%] laptop:px-[5%] xl-desktop:mx-auto xl-desktop:border-x">
+    <div className="flex flex-col h-full px-2 70-laptop:px-[2%] laptop:px-[5%]">
       <div className="flex flex-col h-full">
         <div className="flex items-center">
           <div className="flex flex-col w-fit items-center gap-2 px-3">
