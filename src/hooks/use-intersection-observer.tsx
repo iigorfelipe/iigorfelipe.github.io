@@ -17,14 +17,27 @@ export function useIntersectionObserver(threshold: number = PERCENT_THRESHOLD) {
       },
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    const observe = () => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    };
 
-    return () => {
+    const unobserve = () => {
       if (ref.current) {
         observer.unobserve(ref.current);
       }
+    };
+
+    observe();
+
+    window.addEventListener('resize', unobserve);
+    window.addEventListener('resize', observe);
+
+    return () => {
+      unobserve();
+      window.removeEventListener('resize', unobserve);
+      window.removeEventListener('resize', observe);
     };
   }, [ref, threshold]);
 
