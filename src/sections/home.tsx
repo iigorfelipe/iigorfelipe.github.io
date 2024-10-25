@@ -4,28 +4,28 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 function IntroductoryText() {
-  const laptopSize = 'md-laptop:border-l md-laptop:pl-6 md-laptop:-mt-[94px] 70-laptop:ml-4';
-  const laptopTextSize = 'sm-laptop:text-lg md-laptop:text-xl 70-laptop:text-2xl laptop:text-3xl';
-  const laptopTextSize2 = 'sm-laptop:text-xl md-laptop:text-2xl 70-laptop:text-3xl laptop:text-4xl';
-  const desktopTextSize = 'sm-desktop:text-2xl md-desktop:text-3xl 70-desktop:text-4xl';
-  const desktopTextSize2 = 'sm-desktop:text-3xl md-desktop:text-4xl 70-desktop:text-5xl';
+  const laptopSize = 'md-laptop:border-l md-laptop:pl-6 md-laptop:-mt-11 70-laptop:ml-4 sm-desktop:-ml-2 md-desktop:ml-5';
+  const laptopTextSize = 'text-sm sm-laptop:text-lg md-laptop:text-xl 70-laptop:text-2xl';
+  const laptopTextSize2 = 'text-sm sm-laptop:text-xl md-laptop:text-2xl 70-laptop:text-3xl';
+  const desktopTextSize = 'xs-desktop:text-base sm-desktop:text-xl md-desktop:text-2xl 70-desktop:text-3xl';
+  const desktopTextSize2 = 'xs-desktop:text-base sm-desktop:text-xl md-desktop:text-3xl 70-desktop:text-4xl';
 
   return (
     <div className={`flex flex-col ${laptopSize} 70-desktop:gap-2`}>
-      <p className={`${laptopTextSize} ${desktopTextSize}`}>Hello,</p>
+      <p className={`${laptopTextSize} ${desktopTextSize}`}>Olá,</p>
       <p className={`${laptopTextSize2} ${desktopTextSize2}`}>
-        I’m <span className="font-medium">Igor Soares!</span>
+        Sou <span className="font-medium">Igor Soares!</span>
       </p>
-      <p className={`${laptopTextSize2} ${desktopTextSize2}`}>I work as a Web Developer.</p>
+      <p className={`${laptopTextSize2} ${desktopTextSize2}`}>Trabalho como Desenvolvedor Web.</p>
     </div>
   );
 }
 
 function ProgrammingImage() {
   const laptopSize =
-    'sm-laptop:h-64 md-laptop:h-80 md-laptop:px-0 md-laptop:-mt-[35px] 70-laptop:h-[350px] 70-laptop:-mt-[100px] laptop:h-[400px] laptop:-mt-[140px] laptop:ml-auto';
+    'sm-laptop:h-64 md-laptop:h-80 md-laptop:px-0 70-laptop:h-[350px] 70-laptop:ml-auto 70-laptop:-mt-16 laptop:h-[400px] laptop:-mt-28';
   const desktopSize =
-    'xs-desktop:h-80 sm-desktop:my-auto sm-desktop:h-[420px] md-desktop:h-[480px] 70-desktop:h-[590px] 70-desktop:-mt-[76px] xl-desktop:h-[610px] xl-desktop:-mt-[156px]';
+    'xs-desktop:h-80 sm-desktop:my-auto sm-desktop:h-[420px] md-desktop:h-[480px] 70-desktop:h-[590px] 70-desktop:-mt-11 xl-desktop:h-[610px] xl-desktop:-mt-[156px]';
   return (
     <figure className={`flex justify-center min-h-36 my-auto px-[5%] ${laptopSize} ${desktopSize}`}>
       <img src="programming-1.svg" alt="Programming illustration" className="w-full h-full" />
@@ -42,8 +42,11 @@ export function Home() {
       <div className="flex flex-col h-full">
         <div className="flex items-center">
           <div className="flex flex-col w-fit items-center gap-2 px-3">
-            <Avatar className="size-24 sm-laptop:size-28 md-laptop:size-36 70-laptop:size-48 xs-desktop:size-32 md-desktop:size-48 70-desktop:size-60 xl-desktop:size-72">
-              <AvatarImage src="https://github.com/shadcn.png" />
+            <Avatar className="size-24 sm-laptop:size-28 md-laptop:size-36 70-laptop:size-48 xs-desktop:size-32 md-desktop:size-48 70-desktop:size-60 xl-desktop:size-72 border">
+              <AvatarImage
+                className="object-cover w-full h-full"
+                src="https://github.com/user-attachments/assets/27172328-3387-4d6b-b498-955d1e8df695"
+              />
               <AvatarFallback>I</AvatarFallback>
             </Avatar>
 
@@ -64,7 +67,7 @@ export function Home() {
       </div>
 
       {!isMdLaptop && (
-        <div className='flex items-center justify-center'>
+        <div className="flex items-center justify-center">
           <Contacts />
         </div>
       )}

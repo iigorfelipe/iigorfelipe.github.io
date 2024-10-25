@@ -21,7 +21,7 @@ export function HoverContacts() {
         variant="ghost"
         className="fixed top-2 left-[50%] transform -translate-x-1/2 p-3 cursor-default hover:bg-transparent"
       >
-        Contact me
+        Entre em contato
       </Button>
 
       <div

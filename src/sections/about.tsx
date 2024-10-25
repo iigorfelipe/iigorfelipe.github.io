@@ -12,30 +12,27 @@ import { UserRoundIcon } from 'lucide-react';
 import { useState } from 'react';
 
 function AboutMeText() {
-  const textEn =
-    'I am a Fullstack developer with a special passion for frontend. I have a great enthusiasm for creating intuitive interfaces and engaging experiences';
-  // const textPtBr =
-  //   'Sou desenvolvedor Fullstack, com uma paixão especial pelo frontend. Tenho um grande entusiasmo por criar interfaces intuitivas e experiências envolventes.'; TODO
+  const aboutText =
+    'Sou desenvolvedor Fullstack, com uma paixão especial pelo frontend. Tenho um grande entusiasmo por criar interfaces intuitivas e experiências envolventes.';
   const laptopTextSize = 'md-laptop:text-[15px] 70-laptop:text-base 70-laptop:max-w-sm laptop:text-lg';
   const desktopTextSize =
     'xs-desktop:text-base sm-desktop:text-center md-desktop:text-lg 70-desktop:max-w-lg 70-desktop:text-2xl xl-desktop:text-2xl';
 
-  return <p className={`flex text-sm ${laptopTextSize} ${desktopTextSize}`}>{textEn}</p>;
+  return <p className={`flex text-sm ${laptopTextSize} ${desktopTextSize}`}>{aboutText}</p>;
 }
 
 function MoreUsedLanguages() {
   const { systemAppliedTheme } = useTheme();
   const isDesktopDown = useMediaQuery('(max-width: 1600px)');
 
-  // const carouselTitlePtBr = 'Linguagens mais usadas'; TODO
-  const carouselTitleEn = 'Most Used Languages:';
+  const carouselTitle = 'Linguagens mais usadas';
   const layout = isDesktopDown ? 'layout=compact' : '';
   const bgColor = systemAppliedTheme === 'dark' ? '262626' : 'FFFFFF';
   const textColor = systemAppliedTheme === 'dark' ? 'F2F2F2' : '0A0A0A';
 
   return (
     <img
-      src={`https://github-readme-stats.vercel.app/api/top-langs/?username=iigorfelipe&langs_count=10&theme=${systemAppliedTheme}&custom_title=${carouselTitleEn}&${layout}&hide_border=true&bg_color=${bgColor}&text_color=${textColor}&progress_color=FF5733`}
+      src={`https://github-readme-stats.vercel.app/api/top-langs/?username=iigorfelipe&langs_count=10&theme=${systemAppliedTheme}&custom_title=${carouselTitle}&${layout}&hide_border=true&bg_color=${bgColor}&text_color=${textColor}&progress_color=FF5733`}
       className="sm-desktop:w-[340px] 70-desktop:w-[360px]"
     />
   );
@@ -90,8 +87,7 @@ function ProgrammingIllustration() {
 }
 
 function OtherTechnologies() {
-  // const moreSkillsTitlePtBr = 'Outras tecnologias que utilizo:' TODO;
-  const moreSkillsTitle = 'Other Technologies I Use:';
+  const moreSkillsTitle = 'Outras tecnologias que utilizo:';
 
   const ulStyle = 'list-disc pl-5 text-xs 70-laptop:text-sm sm-desktop:text-sm 70-desktop:text-[15px]';
   const liStyle = 'py-0.5 xs-desktop:text-sm desktop:py-1.5 desktop:text-base xl-desktop:py-2.5';

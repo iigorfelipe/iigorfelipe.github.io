@@ -180,7 +180,7 @@ type DialogDemoProps = {
 };
 
 export function DialogDemo({ companyId }: DialogDemoProps) {
-  const [togleCard, setTogleCard] = useState(false);
+  const [togleCard, setTogleCard] = useState(true);
 
   const { companyName, color, roleDetails, about } = experiences[companyId];
 

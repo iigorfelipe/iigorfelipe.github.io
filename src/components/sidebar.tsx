@@ -44,15 +44,15 @@ export function SideBar() {
         </SheetHeader>
 
         <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('about')}>
-          <UserRoundIcon className="size-6" /> About me
+          <UserRoundIcon className="size-6" /> Sobre
         </Button>
 
         <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('works')}>
-          <LaptopIcon className="size-6" /> Works
+          <LaptopIcon className="size-6" /> Projetos
         </Button>
 
         <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('experiences')}>
-          <BriefcaseBusinessIcon className="size-6" /> Experiences
+          <BriefcaseBusinessIcon className="size-6" /> Experiências
         </Button>
 
         <SheetFooter className="mt-auto flex flex-row justify-evenly border-t pt-6">
