@@ -6,6 +6,7 @@ import { Works } from './sections/works';
 import { Experiences } from './sections/experiences';
 import { useSelectedSectionStore } from './store/navSelected';
 import { useIntersectionObserver } from './hooks/use-intersection-observer';
+import { Footer } from './components/footer';
 
 function Divider() {
   return <div className="border-b w-full" />;
@@ -44,7 +45,7 @@ export const App = () => {
           <Experiences />
         </section>
 
-        <footer className="w-full h-36 flex items-center justify-center border-t mt-6">Footer</footer>
+        <Footer />
       </main>
     </ThemeProvider>
   );
