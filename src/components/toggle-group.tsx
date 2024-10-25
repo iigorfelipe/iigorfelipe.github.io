@@ -1,6 +1,6 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { TooltipDemo } from './tooltip';
-import { useState } from 'react';
+import { useSelectedSectionStore } from '@/store/navSelected';
 
 type Children = {
   children: JSX.Element;
@@ -13,10 +13,10 @@ type ToggleGroupDemoProps = {
 };
 
 export function ToggleGroupDemo({ childrens }: ToggleGroupDemoProps) {
-  const [selectedValue, setSelectedValue] = useState('');
+  const { selectedSection, setSelectedSection } = useSelectedSectionStore();
 
   return (
-    <ToggleGroup type="single" size="sm" className='p-2'>
+    <ToggleGroup type="single" size="sm" className="p-2">
       {childrens.map(({ children, onClick, tooltip }) => (
         <TooltipDemo
           key={tooltip}
@@ -25,10 +25,10 @@ export function ToggleGroupDemo({ childrens }: ToggleGroupDemoProps) {
               value={tooltip}
               aria-label={tooltip}
               onClick={() => {
-                setSelectedValue(tooltip);
+                setSelectedSection(tooltip);
                 onClick();
               }}
-              className={`${selectedValue === tooltip ? 'bg-secondary' : ''}`}
+              className={`${selectedSection === tooltip ? 'bg-secondary' : ''}`}
             >
               {children}
             </ToggleGroupItem>

@@ -9,6 +9,7 @@ import {
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { UserRoundIcon } from 'lucide-react';
+import { useState } from 'react';
 
 function AboutMeText() {
   const textEn =
@@ -60,7 +61,13 @@ function SkillsCarousel() {
 }
 
 function ProgrammingIllustration() {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver(0.4);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  if (isIntersecting && !hasAnimated) {
+    setHasAnimated(true);
+  }
+
   const imgLaptopSize = 'sm-laptop:max-w-60 md-laptop:max-w-xs 70-laptop:max-w-sm';
   const imgDesktopSize =
     'xs-desktop:max-w-xs sm-desktop:max-w-md 70-desktop:max-w-xl xl-desktop:h-full xl-desktop:w-full';
@@ -70,11 +77,11 @@ function ProgrammingIllustration() {
       ref={ref}
       className={`flex justify-center w-full h-fit ${imgLaptopSize} ${imgDesktopSize}`}
       style={{
-        opacity: isIntersecting ? 1 : 0,
-        transform: isIntersecting ? 'translateX(0)' : 'translateX(-100px)',
+        opacity: hasAnimated ? 1 : 0,
+        transform: hasAnimated ? 'translateX(0)' : 'translateX(-100px)',
         transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-        position: isIntersecting ? 'static' : 'absolute',
-        visibility: isIntersecting ? 'visible' : 'hidden',
+        position: hasAnimated ? 'static' : 'absolute',
+        visibility: hasAnimated ? 'visible' : 'hidden',
       }}
     >
       <img src="programming-2.svg" alt="Programming illustration" className="w-full h-full" />
@@ -118,18 +125,23 @@ function OtherTechnologies() {
 
 function withAnimation(WrappedComponent: React.ComponentType, direction: 'left' | 'right' = 'left') {
   return () => {
-    const { ref, isIntersecting } = useIntersectionObserver();
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    const { ref, isIntersecting } = useIntersectionObserver(0.4);
     const translateX = direction === 'left' ? '-100px' : '100px';
+    if (isIntersecting && !hasAnimated) {
+      setHasAnimated(true);
+    }
 
     return (
       <div
         ref={ref}
         style={{
-          opacity: isIntersecting ? 1 : 0,
-          transform: isIntersecting ? 'translateX(0)' : `translateX(${translateX})`,
+          opacity: hasAnimated ? 1 : 0,
+          transform: hasAnimated ? 'translateX(0)' : `translateX(${translateX})`,
           transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-          position: isIntersecting ? 'static' : 'absolute',
-          visibility: isIntersecting ? 'visible' : 'hidden',
+          position: hasAnimated ? 'static' : 'absolute',
+          visibility: hasAnimated ? 'visible' : 'hidden',
         }}
       >
         <WrappedComponent />

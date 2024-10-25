@@ -1,19 +1,31 @@
 import { useEffect, useRef, useState } from 'react';
 
 const PERCENT_THRESHOLD = 0.1; // 10%
-
-export function useIntersectionObserver(threshold: number = PERCENT_THRESHOLD) {
+export function useIntersectionObserver(
+  threshold: number = PERCENT_THRESHOLD,
+  once: boolean = false,
+  callback?: (entry: IntersectionObserverEntry) => void,
+  options?: IntersectionObserverInit,
+) {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsIntersecting(entry.isIntersecting);
+          if (entry.isIntersecting && callback) {
+            callback(entry);
+          }
+
+          if (once) observer.unobserve(entry.target);
+        });
       },
       {
         root: null,
         threshold: threshold,
+        ...options,
       },
     );
 
@@ -39,7 +51,7 @@ export function useIntersectionObserver(threshold: number = PERCENT_THRESHOLD) {
       window.removeEventListener('resize', unobserve);
       window.removeEventListener('resize', observe);
     };
-  }, [ref, threshold]);
+  }, [ref, threshold, callback, once, options]);
 
   return { ref, isIntersecting };
 }

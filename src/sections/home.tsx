@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '../components/ui/button';
 import { Contacts } from '../components/contacts';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
@@ -19,16 +18,6 @@ function IntroductoryText() {
       </p>
       <p className={`${laptopTextSize2} ${desktopTextSize2}`}>I work as a Web Developer.</p>
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="flex justify-center py-6">
-      <Button variant="outline" className="w-2/3 py-8 xs-laptop:py-6 rounded-3xl text-md" size="lg">
-        Contact me
-      </Button>
-    </footer>
   );
 }
 
@@ -64,13 +53,6 @@ export function Home() {
                 <div className={`flex justify-center py-1 ${!isIntersecting && 'h-11'}`}>
                   <Contacts isIntersecting={isIntersecting} />
                 </div>
-                <Button
-                  variant="outline"
-                  className="flex sm-laptop:py-6 rounded-3xl text-md w-full"
-                  size="lg"
-                >
-                  Contact me
-                </Button>
               </>
             )}
           </div>
@@ -81,7 +63,11 @@ export function Home() {
         <ProgrammingImage />
       </div>
 
-      {!isMdLaptop && <Footer />}
+      {!isMdLaptop && (
+        <div className='flex items-center justify-center'>
+          <Contacts />
+        </div>
+      )}
     </div>
   );
 }

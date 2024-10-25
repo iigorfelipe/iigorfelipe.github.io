@@ -1,6 +1,7 @@
 import { SideBar } from './sidebar';
 import { useTheme } from './theme-provider';
 
+import { useSelectedSectionStore } from '@/store/navSelected';
 import { BriefcaseBusinessIcon, LaptopIcon, MonitorCog, Moon, Sun, UserRoundIcon } from 'lucide-react';
 import { ToggleGroupDemo } from './toggle-group';
 
@@ -14,25 +15,28 @@ export function Themes() {
       tooltip: 'Light Mode',
     },
     {
-      children: <Moon className="h-4 w-4" />,
-      onClick: () => setTheme('dark'),
-      tooltip: 'Dark Mode',
-    },
-    {
       children: <MonitorCog className="h-4 w-4" />,
       onClick: () => setTheme('system'),
       tooltip: 'System Theme',
+    },
+    {
+      children: <Moon className="h-4 w-4" />,
+      onClick: () => setTheme('dark'),
+      tooltip: 'Dark Mode',
     },
   ];
 
   return <ToggleGroupDemo childrens={childrens} />;
 }
 
-function NavBar() {
+export function NavBar() {
+  const { setSelectedSection } = useSelectedSectionStore();
+
   const handleScrollTo = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+      setSelectedSection(sectionId);
     }
   };
 
