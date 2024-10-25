@@ -8,6 +8,20 @@ import {
 } from '@/components/ui/carousel';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { UserRoundIcon } from 'lucide-react';
+import { useState } from 'react';
+
+function AboutMeText() {
+  const textEn =
+    'I am a Fullstack developer with a special passion for frontend. I have a great enthusiasm for creating intuitive interfaces and engaging experiences';
+  // const textPtBr =
+  //   'Sou desenvolvedor Fullstack, com uma paixão especial pelo frontend. Tenho um grande entusiasmo por criar interfaces intuitivas e experiências envolventes.'; TODO
+  const laptopTextSize = 'md-laptop:text-[15px] 70-laptop:text-base 70-laptop:max-w-sm laptop:text-lg';
+  const desktopTextSize =
+    'xs-desktop:text-base sm-desktop:text-center md-desktop:text-lg 70-desktop:max-w-lg 70-desktop:text-2xl xl-desktop:text-2xl';
+
+  return <p className={`flex text-sm ${laptopTextSize} ${desktopTextSize}`}>{textEn}</p>;
+}
 
 function MoreUsedLanguages() {
   const { systemAppliedTheme } = useTheme();
@@ -24,6 +38,54 @@ function MoreUsedLanguages() {
       src={`https://github-readme-stats.vercel.app/api/top-langs/?username=iigorfelipe&langs_count=10&theme=${systemAppliedTheme}&custom_title=${carouselTitleEn}&${layout}&hide_border=true&bg_color=${bgColor}&text_color=${textColor}&progress_color=FF5733`}
       className="sm-desktop:w-[340px] 70-desktop:w-[360px]"
     />
+  );
+}
+
+function SkillsCarousel() {
+  return (
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem className="flex justify-center items-center">
+          <div className="flex justify-center items-center w-full h-full">
+            <MoreUsedLanguages />
+          </div>
+        </CarouselItem>
+        <CarouselItem className="flex justify-center items-center">
+          <OtherTechnologies />
+        </CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+}
+
+function ProgrammingIllustration() {
+  const { ref, isIntersecting } = useIntersectionObserver(0.4);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  if (isIntersecting && !hasAnimated) {
+    setHasAnimated(true);
+  }
+
+  const imgLaptopSize = 'sm-laptop:max-w-60 md-laptop:max-w-xs 70-laptop:max-w-sm';
+  const imgDesktopSize =
+    'xs-desktop:max-w-xs sm-desktop:max-w-md 70-desktop:max-w-xl xl-desktop:h-full xl-desktop:w-full';
+
+  return (
+    <figure
+      ref={ref}
+      className={`flex justify-center w-full h-fit ${imgLaptopSize} ${imgDesktopSize}`}
+      style={{
+        opacity: hasAnimated ? 1 : 0,
+        transform: hasAnimated ? 'translateX(0)' : 'translateX(-100px)',
+        transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
+        position: hasAnimated ? 'static' : 'absolute',
+        visibility: hasAnimated ? 'visible' : 'hidden',
+      }}
+    >
+      <img src="programming-2.svg" alt="Programming illustration" className="w-full h-full" />
+    </figure>
   );
 }
 
@@ -61,65 +123,47 @@ function OtherTechnologies() {
   );
 }
 
-function SkillsCarousel() {
-  return (
-    <Carousel>
-      <CarouselContent>
-        <CarouselItem className="flex justify-center items-center">
-          <div className="flex justify-center items-center w-full h-full">
-            <MoreUsedLanguages />
-          </div>
-        </CarouselItem>
-        <CarouselItem className="flex justify-center items-center">
-          <OtherTechnologies />
-        </CarouselItem>
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
+function withAnimation(WrappedComponent: React.ComponentType, direction: 'left' | 'right' = 'left') {
+  return () => {
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    const { ref, isIntersecting } = useIntersectionObserver(0.4);
+    const translateX = direction === 'left' ? '-100px' : '100px';
+    if (isIntersecting && !hasAnimated) {
+      setHasAnimated(true);
+    }
+
+    return (
+      <div
+        ref={ref}
+        style={{
+          opacity: hasAnimated ? 1 : 0,
+          transform: hasAnimated ? 'translateX(0)' : `translateX(${translateX})`,
+          transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
+          position: hasAnimated ? 'static' : 'absolute',
+          visibility: hasAnimated ? 'visible' : 'hidden',
+        }}
+      >
+        <WrappedComponent />
+      </div>
+    );
+  };
 }
 
-function AboutMeText() {
-  const { ref, isIntersecting } = useIntersectionObserver();
-
-  const textEn =
-    'I am a Fullstack developer with a special passion for frontend. I have a great enthusiasm for creating intuitive interfaces and engaging experiences';
-  // const textPtBr =
-  //   'Sou desenvolvedor Fullstack, com uma paixão especial pelo frontend. Tenho um grande entusiasmo por criar interfaces intuitivas e experiências envolventes.'; TODO
-  const laptopTextSize = 'md-laptop:text-[15px] 70-laptop:text-base 70-laptop:max-w-sm laptop:text-lg';
-  const desktopTextSize =
-    'xs-desktop:text-base sm-desktop:text-center md-desktop:text-lg 70-desktop:max-w-lg 70-desktop:text-2xl xl-desktop:text-2xl';
-
-  return (
-    <p
-      className={`flex text-sm ${laptopTextSize} ${desktopTextSize}`}
-      ref={ref}
-      style={{
-        opacity: isIntersecting ? 1 : 0,
-        transform: isIntersecting ? 'translateX(0)' : 'translateX(-100px)',
-        transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-      }}
-    >
-      {textEn}
-    </p>
-  );
-}
+const AnimatedAboutMeText = withAnimation(AboutMeText, 'left');
+const AnimatedOtherTechnologies = withAnimation(OtherTechnologies, 'right');
 
 export function About() {
-  const { ref, isIntersecting } = useIntersectionObserver();
+  const isMobile = useMediaQuery('(max-width: 499px)');
   const widthIs896pxDown = useMediaQuery('(max-width: 896px)');
   const widthIs1600pxUp = useMediaQuery('(min-width: 1600px)');
 
-  const imgLaptopSize = 'sm-laptop:max-w-60 md-laptop:max-w-xs 70-laptop:max-w-sm';
-  const imgDesktopSize =
-    'xs-desktop:max-w-xs sm-desktop:max-w-md 70-desktop:max-w-xl xl-desktop:h-full xl-desktop:w-full';
-
   return (
-    <div className="flex h-full w-full xl-desktop:px-24">
-      <div className="flex flex-col items-center justify-evenly w-full h-full">
-        <div className="flex items-center justify-center h-fit w-full 70-laptop:justify-around">
-          <AboutMeText />
+    <div className="flex h-full w-full sm-laptop:pt-12 xl-desktop:px-24">
+      <div className="flex flex-col items-center justify-between sm-laptop:justify-evenly w-full h-full">
+        {isMobile && <UserRoundIcon className="h-4 w-4 mt-3 ml-auto" />}
+        <div className="flex items-center justify-center h-fit w-full 70-laptop:justify-around px-4">
+          <AnimatedAboutMeText />
           {!widthIs896pxDown && !widthIs1600pxUp && <MoreUsedLanguages />}
         </div>
 
@@ -130,44 +174,16 @@ export function About() {
         )}
 
         <div className="flex items-center justify-center w-full 70-laptop:justify-around">
-          <figure
-            ref={ref}
-            className={`flex justify-center w-full h-fit ${imgLaptopSize} ${imgDesktopSize} ${
-              isIntersecting ? 'animate-fade-in' : 'opacity-0'
-            }`}
-          >
-            <img src="programming-2.svg" alt="Programming illustration" className="w-full h-full" />
-          </figure>
+          <ProgrammingIllustration />
 
-          {!widthIs896pxDown && !widthIs1600pxUp && (
-            <div
-              className="mr-12"
-              ref={ref}
-              style={{
-                opacity: isIntersecting ? 1 : 0,
-                transform: isIntersecting ? 'translateX(0)' : 'translateX(100px)',
-                transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-              }}
-            >
-              <OtherTechnologies />
-            </div>
-          )}
+          {!widthIs896pxDown && !widthIs1600pxUp && <AnimatedOtherTechnologies />}
         </div>
       </div>
 
       {widthIs1600pxUp && (
         <div className="flex w-full h-full items-center justify-evenly">
           <MoreUsedLanguages />
-          <div
-            ref={ref}
-            style={{
-              opacity: isIntersecting ? 1 : 0,
-              transform: isIntersecting ? 'translateX(0)' : 'translateX(100px)',
-              transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-            }}
-          >
-            <OtherTechnologies />
-          </div>
+          <AnimatedOtherTechnologies />
         </div>
       )}
     </div>

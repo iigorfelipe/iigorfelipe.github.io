@@ -7,16 +7,31 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { BriefcaseBusiness, Laptop, Menu, User2 } from 'lucide-react';
-
+import { BriefcaseBusinessIcon, LaptopIcon, Menu, UserRoundIcon } from 'lucide-react';
+import { useState } from 'react';
+import { Contacts } from './contacts';
+import { Themes } from './header';
 import { Button } from './ui/button';
 
-import { Themes } from './header';
-import { Contacts } from './contacts';
-
 export function SideBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleScrollTo = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleCloseAndScroll = (sectionId: string) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      handleScrollTo(sectionId);
+    }, 300);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="p-2">
         <Menu />
       </SheetTrigger>
@@ -28,16 +43,16 @@ export function SideBar() {
           <Themes />
         </SheetHeader>
 
-        <Button variant="ghost" className="gap-5 w-fit">
-          <User2 className="size-6" /> About me
+        <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('about')}>
+          <UserRoundIcon className="size-6" /> About me
         </Button>
 
-        <Button variant="ghost" className="gap-5 w-fit">
-          <Laptop className="size-6" /> Works
+        <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('works')}>
+          <LaptopIcon className="size-6" /> Works
         </Button>
 
-        <Button variant="ghost" className="gap-5 w-fit">
-          <BriefcaseBusiness className="size-6" /> Experiences
+        <Button variant="ghost" className="gap-5 w-fit" onClick={() => handleCloseAndScroll('experiences')}>
+          <BriefcaseBusinessIcon className="size-6" /> Experiences
         </Button>
 
         <SheetFooter className="mt-auto flex flex-row justify-evenly border-t pt-6">

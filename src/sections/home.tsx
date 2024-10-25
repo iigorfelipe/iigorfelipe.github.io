@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '../components/ui/button';
 import { Contacts } from '../components/contacts';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
@@ -22,16 +21,6 @@ function IntroductoryText() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="flex justify-center py-6">
-      <Button variant="outline" className="w-2/3 py-8 xs-laptop:py-6 rounded-3xl text-md" size="lg">
-        Contact me
-      </Button>
-    </footer>
-  );
-}
-
 function ProgrammingImage() {
   const laptopSize =
     'sm-laptop:h-64 md-laptop:h-80 md-laptop:px-0 md-laptop:-mt-[35px] 70-laptop:h-[350px] 70-laptop:-mt-[100px] laptop:h-[400px] laptop:-mt-[140px] laptop:ml-auto';
@@ -49,7 +38,7 @@ export function Home() {
   const { ref, isIntersecting } = useIntersectionObserver(0.5);
 
   return (
-    <div className="flex flex-col h-full max-w-[1920px] px-2 70-laptop:px-[2%] laptop:px-[5%] xl-desktop:mx-auto xl-desktop:border-x">
+    <div className="flex flex-col h-full px-2 70-laptop:px-[2%] laptop:px-[5%]">
       <div className="flex flex-col h-full">
         <div className="flex items-center">
           <div className="flex flex-col w-fit items-center gap-2 px-3">
@@ -64,13 +53,6 @@ export function Home() {
                 <div className={`flex justify-center py-1 ${!isIntersecting && 'h-11'}`}>
                   <Contacts isIntersecting={isIntersecting} />
                 </div>
-                <Button
-                  variant="outline"
-                  className="flex sm-laptop:py-6 rounded-3xl text-md w-full"
-                  size="lg"
-                >
-                  Contact me
-                </Button>
               </>
             )}
           </div>
@@ -81,7 +63,11 @@ export function Home() {
         <ProgrammingImage />
       </div>
 
-      {!isMdLaptop && <Footer />}
+      {!isMdLaptop && (
+        <div className='flex items-center justify-center'>
+          <Contacts />
+        </div>
+      )}
     </div>
   );
 }
