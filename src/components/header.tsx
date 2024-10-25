@@ -12,17 +12,17 @@ export function Themes() {
     {
       children: <Sun className="h-4 w-4" />,
       onClick: () => setTheme('light'),
-      tooltip: 'Light Mode',
+      tooltip: 'Claro',
     },
     {
       children: <MonitorCog className="h-4 w-4" />,
       onClick: () => setTheme('system'),
-      tooltip: 'System Theme',
+      tooltip: 'Do Sistema',
     },
     {
       children: <Moon className="h-4 w-4" />,
       onClick: () => setTheme('dark'),
-      tooltip: 'Dark Mode',
+      tooltip: 'Escuro',
     },
   ];
 
@@ -44,17 +44,17 @@ export function NavBar() {
     {
       children: <UserRoundIcon className="h-4 w-4" />,
       onClick: () => handleScrollTo('about'),
-      tooltip: 'About me',
+      tooltip: 'Sobre',
     },
     {
       children: <LaptopIcon className="h-4 w-4" />,
       onClick: () => handleScrollTo('works'),
-      tooltip: 'Works',
+      tooltip: 'Projetos',
     },
     {
       children: <BriefcaseBusinessIcon className="h-4 w-4" />,
       onClick: () => handleScrollTo('experiences'),
-      tooltip: 'Experiences',
+      tooltip: 'Experiências',
     },
   ];
 
