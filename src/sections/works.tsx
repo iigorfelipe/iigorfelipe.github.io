@@ -5,9 +5,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { ExternalLinkIcon, GlobeIcon, LaptopIcon } from 'lucide-react';
+import { useState } from 'react';
 
 const works = [
   {
@@ -18,14 +20,6 @@ const works = [
     mobileImg: 'tree-view-mobile.png',
     githubLink: 'https://github.com/iigorfelipe/tree-view',
     appLink: 'https://iigorfelipe.github.io/tree-view/',
-  },
-  {
-    title: 'Woovi',
-    description: 'Guia de Pagamento: Pix e Cartão de Crédito Parcelado no Woovi',
-    desktopImg: 'woovi.png',
-    mobileImg: 'woovi-mobile.png',
-    githubLink: 'https://github.com/iigorfelipe/woovi',
-    appLink: 'https://iigorfelipe.github.io/woovi/',
   },
   {
     title: 'Invoice Insight',
@@ -45,7 +39,51 @@ const works = [
     githubLink: 'https://github.com/iigorfelipe/github-explorer',
     appLink: 'https://iigorfelipe.github.io/github-explorer/',
   },
+  {
+    title: 'Woovi',
+    description: 'Guia de Pagamento: Pix e Cartão de Crédito Parcelado no Woovi',
+    desktopImg: 'woovi.png',
+    mobileImg: 'woovi-mobile.png',
+    githubLink: 'https://github.com/iigorfelipe/woovi',
+    appLink: 'https://iigorfelipe.github.io/woovi/',
+  },
 ];
+
+type ShowMobileProps = {
+  title: string;
+  mobileImg: string;
+};
+
+function ShowMobile({ title, mobileImg }: ShowMobileProps) {
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  const { ref, isIntersecting } = useIntersectionObserver(0.3);
+
+  if (isIntersecting && !hasAnimated) {
+    setHasAnimated(true);
+  }
+
+  return (
+    <figure
+      ref={ref}
+      style={{
+        opacity: hasAnimated ? 1 : 0,
+        transform: hasAnimated ? 'translateY(0)' : 'translateY(100px)',
+        transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
+        position: hasAnimated ? 'static' : 'absolute',
+        visibility: hasAnimated ? 'visible' : 'hidden',
+      }}
+      className="w-full h-fit sm-laptop:max-w-[240px] 70-laptop:max-w-sm xs-desktop:max-w-xs sm-desktop:max-w-sm md-desktop:max-w-md 70-desktop:max-w-lg"
+    >
+      <img
+        src={mobileImg}
+        alt={`${title} mobile illustration`}
+        className="w-full h-fit drop-shadow-custom"
+        loading="lazy"
+      />
+    </figure>
+  );
+}
 
 export function Works() {
   const isMobile = useMediaQuery('(max-width: 499px)');
@@ -77,14 +115,7 @@ export function Works() {
                 </div>
 
                 <div className="flex flex-col items-center h-3/4 w-full justify-around sm-laptop:h-4/5 70-laptop:flex-row-reverse 70-laptop:gap-36 laptop:gap-28 70-laptop:h-fit 70-laptop:-mt-12 xs-desktop:h-4/5 md-desktop:h-fit">
-                  <figure className="w-full h-fit sm-laptop:max-w-[240px] 70-laptop:max-w-sm xs-desktop:max-w-xs sm-desktop:max-w-sm md-desktop:max-w-md 70-desktop:max-w-lg">
-                    <img
-                      src={work.mobileImg}
-                      alt={`${work.title} mobile illustration`}
-                      className="w-full h-fit drop-shadow-custom"
-                      loading="lazy"
-                    />
-                  </figure>
+                  <ShowMobile title={work.title} mobileImg={work.mobileImg} />
 
                   <nav className="flex flex-col gap-3 w-full max-w-xs desktop:gap-5">
                     <a
