@@ -15,9 +15,9 @@ function Divider() {
 export const App = () => {
   const { setSelectedSection } = useSelectedSectionStore();
 
-  const aboutRef = useIntersectionObserver(0.8, false, () => setSelectedSection('About me'));
-  const worksRef = useIntersectionObserver(0.8, false, () => setSelectedSection('Works'));
-  const experiencesRef = useIntersectionObserver(0.8, false, () => setSelectedSection('Experiences'));
+  const aboutRef = useIntersectionObserver(0.8, false, () => setSelectedSection('about'));
+  const worksRef = useIntersectionObserver(0.8, false, () => setSelectedSection('works'));
+  const experiencesRef = useIntersectionObserver(0.8, false, () => setSelectedSection('experiences'));
 
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
