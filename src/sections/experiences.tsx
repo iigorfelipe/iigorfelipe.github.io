@@ -51,7 +51,7 @@ const experiences: Experiences = {
       `Além do conhecimento técnico, a Trybe forma profissionais competentes e prontos para o mercado, enfatizando competências comportamentais como trabalho em equipe, resolução de problemas e adaptabilidade. Com um compromisso com a inclusão e diversidade, a Trybe conecta talentos a oportunidades valiosas, contribuindo para o fortalecimento da indústria de tecnologia.`,
     ],
     duration: 'ago de 2021 | ago de 2022',
-    logo: 'trybe-logo.svg',
+    logo: 'https://github.com/user-attachments/assets/9bc146b0-e28f-42b2-bcb8-c69ab3ad829c',
     roleDetails: [
       'Aprofundamento nos fundamentos do desenvolvimento web, incluindo Git, Unix, Bash, HTML, CSS e JavaScript.',
       'Desenvolvimento de aplicações frontend utilizando TypeScript, React, React Hooks e React Router, com ênfase em acessibilidade e usabilidade.',
@@ -90,7 +90,7 @@ const experiences: Experiences = {
     companyName: 'Atlas - Segurança e Inteligência Logística',
     color: '#FF5618',
     duration: 'out de 2022 | jun de 2024',
-    logo: 'atlas-logo.svg',
+    logo: 'https://github.com/user-attachments/assets/09513a1b-c465-45ae-bcc1-666bf6523251',
     about: [
       `A Atlas atua no mercado de Segurança e Inteligência Logística, reconhecida pelo seu trabalho em
         proteger operações logísticas por meio de soluções tecnológicas de ponta. Atuando desde 2004, a
@@ -324,7 +324,11 @@ export function Experiences() {
       )}
 
       <figure className={`flex justify-center w-full h-fit mt-auto ${imgLaptopSize} ${imgDesktopSize}`}>
-        <img src="programming-3.svg" alt="Programming illustration" className="w-full h-full" />
+        <img
+          src="https://github.com/user-attachments/assets/c52df343-2824-4e05-8645-14e27599c35b"
+          alt="Programming illustration"
+          className="w-full h-full"
+        />
       </figure>
     </div>
   );
