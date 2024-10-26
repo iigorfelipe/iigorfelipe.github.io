@@ -81,7 +81,11 @@ function ProgrammingIllustration() {
         visibility: hasAnimated ? 'visible' : 'hidden',
       }}
     >
-      <img src="programming-2.svg" alt="Programming illustration" className="w-full h-full" />
+      <img
+        src="https://github.com/user-attachments/assets/7e013f97-3307-4ee6-b61a-5a6c03951371"
+        alt="Programming illustration"
+        className="w-full h-full"
+      />
     </figure>
   );
 }

@@ -7,47 +7,10 @@ import {
 } from '@/components/ui/carousel';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { works } from '@/utils/works';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { ExternalLinkIcon, GlobeIcon, LaptopIcon } from 'lucide-react';
 import { useState } from 'react';
-
-const works = [
-  {
-    title: 'Tree View',
-    description:
-      'Visualização hierárquica dos ativos de uma empresa, abrangendo componentes, ativos e localizações.',
-    desktopImg: 'tree-view.png',
-    mobileImg: 'tree-view-mobile.png',
-    githubLink: 'https://github.com/iigorfelipe/tree-view',
-    appLink: 'https://iigorfelipe.github.io/tree-view/',
-  },
-  {
-    title: 'Invoice Insight',
-    description:
-      'Listagem performática de clientes e prestações por mês. Inclui gráfico e filtragem por períodos.',
-    desktopImg: 'invoice-insight.png',
-    mobileImg: 'invoice-insight-mobile.png',
-    githubLink: 'https://github.com/iigorfelipe/invoice-insight',
-    appLink: 'https://iigorfelipe.github.io/invoice-insight/',
-  },
-  {
-    title: 'Github Explorer',
-    description:
-      'Explore repositórios GitHub com facilidade. Filtragem por tipo, linguagem e ordenação disponíveis.',
-    desktopImg: 'github-explorer.png',
-    mobileImg: 'github-explorer-mobile.png',
-    githubLink: 'https://github.com/iigorfelipe/github-explorer',
-    appLink: 'https://iigorfelipe.github.io/github-explorer/',
-  },
-  {
-    title: 'Woovi',
-    description: 'Guia de Pagamento: Pix e Cartão de Crédito Parcelado no Woovi',
-    desktopImg: 'woovi.png',
-    mobileImg: 'woovi-mobile.png',
-    githubLink: 'https://github.com/iigorfelipe/woovi',
-    appLink: 'https://iigorfelipe.github.io/woovi/',
-  },
-];
 
 type ShowMobileProps = {
   title: string;

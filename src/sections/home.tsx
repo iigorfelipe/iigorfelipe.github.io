@@ -28,7 +28,11 @@ function ProgrammingImage() {
     'xs-desktop:h-80 sm-desktop:my-auto sm-desktop:h-[420px] md-desktop:h-[480px] 70-desktop:h-[590px] 70-desktop:-mt-11 xl-desktop:h-[610px] xl-desktop:-mt-[156px]';
   return (
     <figure className={`flex justify-center min-h-36 my-auto px-[5%] ${laptopSize} ${desktopSize}`}>
-      <img src="programming-1.svg" alt="Programming illustration" className="w-full h-full" />
+      <img
+        src="https://github.com/user-attachments/assets/b63daa1b-b4f1-4af2-ba78-83481d776123"
+        alt="Programming illustration"
+        className="w-full h-full"
+      />
     </figure>
   );
 }

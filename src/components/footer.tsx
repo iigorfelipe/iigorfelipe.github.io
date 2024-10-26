@@ -1,7 +1,7 @@
 import { ArrowUp, Heart } from 'lucide-react';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { Button } from './ui/button';
-import { useSelectedSectionStore } from '@/store/navSelected';
+import { useSelectedSectionStore } from '@/store/section-selected';
 
 export function Footer() {
   const { setSelectedSection } = useSelectedSectionStore();

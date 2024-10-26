@@ -4,7 +4,7 @@ import { About } from './sections/about';
 import { Header } from './components/header';
 import { Works } from './sections/works';
 import { Experiences } from './sections/experiences';
-import { useSelectedSectionStore } from './store/navSelected';
+import { useSelectedSectionStore } from './store/section-selected';
 import { useIntersectionObserver } from './hooks/use-intersection-observer';
 import { Footer } from './components/footer';
 
@@ -15,14 +15,15 @@ function Divider() {
 export const App = () => {
   const { setSelectedSection } = useSelectedSectionStore();
 
-  const aboutRef = useIntersectionObserver(0.8, false, () => setSelectedSection('About me'));
-  const worksRef = useIntersectionObserver(0.8, false, () => setSelectedSection('Works'));
-  const experiencesRef = useIntersectionObserver(0.8, false, () => setSelectedSection('Experiences'));
+  const aboutRef = useIntersectionObserver(0.8, false, () => setSelectedSection('about'));
+  const worksRef = useIntersectionObserver(0.8, false, () => setSelectedSection('works'));
+  const experiencesRef = useIntersectionObserver(0.8, false, () => setSelectedSection('experiences'));
 
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <main className="flex flex-col h-full w-full max-w-[1920px] xl-desktop:mx-auto xl-desktop:border-x">
         <Header />
+
         <section id="home" className="h-screen w-full pt-12">
           <Home />
         </section>
