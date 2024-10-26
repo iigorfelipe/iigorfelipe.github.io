@@ -1,7 +1,7 @@
 import { SideBar } from './sidebar';
 import { useTheme } from './theme-provider';
 
-import { useSelectedSectionStore } from '@/store/navSelected';
+import { useSelectedSectionStore } from '@/store/section-selected';
 import { BriefcaseBusinessIcon, LaptopIcon, MonitorCog, Moon, Sun, UserRoundIcon } from 'lucide-react';
 import { ToggleGroupDemo } from './toggle-group';
 

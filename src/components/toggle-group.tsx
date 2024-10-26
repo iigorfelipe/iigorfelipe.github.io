@@ -1,6 +1,6 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { TooltipDemo } from './tooltip';
-import { useSelectedSectionStore } from '@/store/navSelected';
+import { useSelectedSectionStore } from '@/store/section-selected';
 
 type Children = {
   children: JSX.Element;
