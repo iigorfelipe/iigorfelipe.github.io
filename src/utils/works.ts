@@ -34,4 +34,14 @@ export const works = [
     githubLink: 'https://github.com/iigorfelipe/woovi',
     appLink: 'https://iigorfelipe.github.io/woovi/',
   },
+  {
+    title: 'IA Responde',
+    description:
+      'App mobile desenvolvido para interagir com a API da OpenAI, oferecendo uma experiência de perguntas e respostas (Q&A) personalizada. Os dados são salvos localmente no dispositivo, garantindo fácil acesso offline.',
+    desktopImg: 'https://github.com/user-attachments/assets/1cf83b3f-17b2-4e42-9871-044c75310541',
+    mobileImg: 'https://github.com/user-attachments/assets/707c35a9-d204-4b72-8946-c2eb12478419',
+    githubLink: 'https://github.com/iigorfelipe/ia-responde',
+    appLink:
+      'https://expo.dev/preview/update?message=deploy%3A%20test%20deployment%20using%20EAS%20update&updateRuntimeVersion=1.0.0&createdAt=2024-11-26T17%3A22%3A40.113Z&slug=exp&projectId=d34507d7-c465-4ddf-b9c0-b0b5aad3c7a8&group=59f8a026-7288-4609-8412-e0c65c777ac9',
+  },
 ];
