@@ -4,55 +4,43 @@ import { GITHUB, GMAIL, ZAP } from '@/assets';
 export const AnimatedPhone = () => {
   return (
     <svg width="40" height="75" viewBox="0 0 40 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Header mais próximo do topo */}
+      {/* Header */}
       <line x1="4" y1="10" x2="36" y2="10" stroke="currentColor" strokeWidth="1" />
 
-      {/* Footer mais próximo da base */}
+      {/* Footer */}
       <line x1="4" y1="65" x2="36" y2="65" stroke="currentColor" strokeWidth="1" />
 
-      {/* Área visível da tela */}
+      {/* Tela */}
       <clipPath id="screen-clip">
         <rect x="12" y="14" width="16" height="48" rx="2" />
       </clipPath>
 
       <g clipPath="url(#screen-clip)">
         <g id="slider" className="animate-slide-icons">
-          {/* Balõezinhos antes do ZAP */}
+          {/* Balõezinhos de texto */}
           <g transform="translate(12, 18)">
             <rect x="0" y="0" width="14" height="6" rx="3" fill="currentColor" opacity="0.2" />
             <rect x="2" y="10" width="10" height="6" rx="3" fill="currentColor" opacity="0.25" />
             <rect x="1" y="20" width="12" height="6" rx="3" fill="currentColor" opacity="0.3" />
           </g>
 
-          {/* ZAP */}
           <g transform="translate(12, 54)">
             {' '}
-            {/* aumentei de 42 para 54 */}
             <ZAP width={16} height={16} />
-            {/* linha removida */}
           </g>
-
-          {/* LinkedIn */}
           <g transform="translate(12, 78)">
             {' '}
-            {/* mantive espaçamento anterior */}
             <LinkedInLogoIcon width={16} height={16} />
-            {/* linha removida */}
           </g>
-
-          {/* GitHub */}
           <g transform="translate(12, 102)">
             <GITHUB width={16} height={16} />
-            {/* linha removida */}
           </g>
 
-          {/* Gmail */}
           <g transform="translate(12, 126)">
             <GMAIL width={16} height={16} />
-            {/* linha removida */}
           </g>
 
-          {/* Balõezinhos após Gmail */}
+          {/* Balõezinhos de texto */}
           <g transform="translate(12, 150)">
             <rect x="0" y="0" width="14" height="6" rx="3" fill="currentColor" opacity="0.3" />
             <rect x="2" y="10" width="10" height="6" rx="3" fill="currentColor" opacity="0.25" />
@@ -60,7 +48,6 @@ export const AnimatedPhone = () => {
           </g>
         </g>
 
-        {/* Animação refinada */}
         <animateTransform
           xlinkHref="#slider"
           attributeName="transform"
