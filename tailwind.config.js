@@ -1,22 +1,18 @@
+import animate from 'tailwindcss-animate';
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      'xs-laptop': { raw: '(min-width: 460px) and (min-height: 600px)' },
-      'sm-laptop': { raw: '(min-width: 500px) and (min-height: 600px)' },
-      'md-laptop': { raw: '(min-width: 640px) and (min-height: 600px)' },
-      '70-laptop': { raw: '(min-width: 896px) and (min-height: 600px)' },
-      laptop: { raw: '(min-width: 1280px) and (min-height: 600px)' },
-
-      'xs-desktop': { raw: '(min-width: 500px) and (min-height: 800px)' },
-      'sm-desktop': { raw: '(min-width: 640px) and (min-height: 800px)' },
-      'md-desktop': { raw: '(min-width: 896px) and (min-height: 800px)' },
-      '70-desktop': { raw: '(min-width: 1280px) and (min-height: 800px)' },
-      desktop: { raw: '(min-width: 1440px) and (min-height: 800px)' },
-      'xl-desktop': { raw: '(min-width: 1600px) and (min-height: 800px)' },
-      '2xl-desktop': { raw: '(min-width: 1800px) and (min-height: 800px)' },
+      xs: '320px',
+      sm: '480px',
+      md: '768px',
+      lg: '1280px',
+      xl: '1366px',
+      '2xl': '1440px',
+      '3xl': '1728px',
+      '4xl': '1920px',
     },
     extend: {
       keyframes: {
@@ -80,5 +76,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [animate],
 };

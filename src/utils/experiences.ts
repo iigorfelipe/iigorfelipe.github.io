@@ -1,9 +1,9 @@
-type Log = {
+export type Log = {
   date: string;
   position: string;
 };
 
-type CompanyDetail = {
+export type CompanyDetail = {
   companyName: string;
   color: string;
   about: string[];
@@ -16,6 +16,7 @@ type CompanyDetail = {
 type ExperiencesType = {
   trybeExperience: CompanyDetail;
   atlasExperience: CompanyDetail;
+  meuguruExperience: CompanyDetail;
 };
 
 export const experiences: ExperiencesType = {
@@ -28,7 +29,7 @@ export const experiences: ExperiencesType = {
       `Além do conhecimento técnico, a Trybe forma profissionais competentes e prontos para o mercado, enfatizando competências comportamentais como trabalho em equipe, resolução de problemas e adaptabilidade. Com um compromisso com a inclusão e diversidade, a Trybe conecta talentos a oportunidades valiosas, contribuindo para o fortalecimento da indústria de tecnologia.`,
     ],
     duration: 'ago de 2021 | ago de 2022',
-    logo: 'https://github.com/user-attachments/assets/9bc146b0-e28f-42b2-bcb8-c69ab3ad829c',
+    logo: 'src/assets/logo-trybe.svg',
     roleDetails: [
       'Aprofundamento nos fundamentos do desenvolvimento web, incluindo Git, Unix, Bash, HTML, CSS e JavaScript.',
       'Desenvolvimento de aplicações frontend utilizando TypeScript, React, React Hooks e React Router, com ênfase em acessibilidade e usabilidade.',
@@ -67,7 +68,7 @@ export const experiences: ExperiencesType = {
     companyName: 'Atlas - Segurança e Inteligência Logística',
     color: '#FF5618',
     duration: 'out de 2022 | jun de 2024',
-    logo: 'https://github.com/user-attachments/assets/09513a1b-c465-45ae-bcc1-666bf6523251',
+    logo: 'src/assets/logo-atlas.svg',
     about: [
       `A Atlas atua no mercado de Segurança e Inteligência Logística, reconhecida pelo seu trabalho em
         proteger operações logísticas por meio de soluções tecnológicas de ponta. Atuando desde 2004, a
@@ -92,7 +93,7 @@ export const experiences: ExperiencesType = {
     log: [
       {
         date: 'out de 2022',
-        position: 'Desenvolvedor Frontend',
+        position: 'Desenvolvedor',
       },
       {
         date: '2024',
@@ -100,51 +101,30 @@ export const experiences: ExperiencesType = {
       },
     ],
   },
+
+  meuguruExperience: {
+    companyName: 'Meu Guru - Tecnologia Educacional',
+    color: '#7A00C6',
+    duration: 'dez de 2024 | mai de 2025',
+    logo: 'src/assets/logo-meuguru.svg',
+    about: [
+      `O Meu Guru é uma plataforma focada na educação personalizada por meio da tecnologia, conectando alunos e tutores de forma eficiente e intuitiva. A empresa desenvolve soluções que melhoram a experiência de aprendizado, combinando tecnologia de ponta com design centrado no usuário.`,
+      `Com projetos voltados tanto para alunos quanto para professores, a equipe do Meu Guru atua com foco em performance, escalabilidade e usabilidade, investindo em tecnologias modernas e boas práticas de desenvolvimento mobile.`,
+    ],
+    roleDetails: [
+      'Desenvolvi e mantive uma biblioteca de componentes reutilizáveis, utilizada em múltiplos projetos mobile com React Native e Expo.',
+      'Implementei um sistema de chat em tempo real com funcionalidades como edição, exclusão, marcação de mensagens não lidas e suporte offline.',
+      'Usei React Query para gerenciamento de cache, invalidação de dados e prevenção de requisições desnecessárias, melhorando o desempenho geral da aplicação.',
+      'Criei interfaces e funcionalidades com foco em performance, incluindo renderização eficiente de listas e tratamento elegante de erros.',
+      'Implementei suporte a múltiplos idiomas com modal de seleção e adaptação de telas, ampliando a acessibilidade do app.',
+    ],
+    log: [
+      {
+        date: 'dez de 2024',
+        position: 'Desenvolvedor Mobile',
+      },
+    ],
+  },
 };
 
-export type ComapnyIdType = 'trybeExperience' | 'atlasExperience';
-
-export type ExperienceType = Log & {
-  companyId: ComapnyIdType;
-};
-
-export const firstPageOfTheCarouselOfExperiences: ExperienceType[] = [
-  {
-    companyId: 'trybeExperience',
-    date: 'ago de 2021',
-    position: 'Fundamentos do Desenvolvimento Web',
-  },
-  {
-    companyId: 'trybeExperience',
-    date: '2021',
-    position: 'Desenvolvimento Front-End',
-  },
-  {
-    companyId: 'trybeExperience',
-    date: '2021',
-    position: 'Desenvolvimento Back-End',
-  },
-  {
-    companyId: 'trybeExperience',
-    date: '2021',
-    position: 'Ciência da Computação',
-  },
-];
-
-export const secondPageOfTheCarouselOfExperiences: ExperienceType[] = [
-  {
-    companyId: 'trybeExperience',
-    date: 'ago de 2022',
-    position: 'Desenvolvimento Web',
-  },
-  {
-    companyId: 'atlasExperience',
-    date: 'out de 2022',
-    position: 'Desenvolvedor Frontend',
-  },
-  {
-    companyId: 'atlasExperience',
-    date: '2024',
-    position: 'Desenvolvedor FullStack',
-  },
-];
+export const experiencesArray = Object.values(experiences);
