@@ -47,10 +47,17 @@ export const Home = () => {
             <br />
             <span className="font-medium">Desenvolvedor Web.</span>
           </h1>
-          <Button className="gap-2" size="sm">
-            Baixar CV
-            <Download className="size-4" />
-          </Button>
+          <a
+            href="/cv.pdf"
+            download="CV - Igor Soares (resume) - PDF.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="gap-2" size="sm">
+              Baixar CV
+              <Download className="size-4" />
+            </Button>
+          </a>
         </div>
       </div>
       <Technologies />
