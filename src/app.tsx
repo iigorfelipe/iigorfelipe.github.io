@@ -1,53 +1,38 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import { Home } from './sections/home';
-import { About } from './sections/about';
 import { Header } from './components/header';
 import { Works } from './sections/works';
 import { Experiences } from './sections/experiences';
-import { useSelectedSectionStore } from './store/section-selected';
-import { useIntersectionObserver } from './hooks/use-intersection-observer';
 import { Footer } from './components/footer';
 
-function Divider() {
+const Divider = () => {
   return <div className="border-b w-full" />;
-}
+};
 
 export const App = () => {
-  const { setSelectedSection } = useSelectedSectionStore();
-
-  const aboutRef = useIntersectionObserver(0.8, false, () => setSelectedSection('about'));
-  const worksRef = useIntersectionObserver(0.8, false, () => setSelectedSection('works'));
-  const experiencesRef = useIntersectionObserver(0.8, false, () => setSelectedSection('experiences'));
-
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <main className="flex flex-col h-full w-full max-w-[1920px] xl-desktop:mx-auto xl-desktop:border-x">
-        <Header />
+      <Header />
 
-        <section id="home" className="h-screen w-full pt-12">
+      <main className="flex flex-col px-2 sm:px-4 md:px-6 lg:px-8 2xl:px-20 gap-6 md:gap-12">
+        <section id="home" className="h-[calc(100dvh-4.5rem)] pt-6 2xl:pt-12 w-full ">
           <Home />
         </section>
 
         <Divider />
 
-        <section id="about" ref={aboutRef.ref} className="h-screen w-full px-4">
-          <About />
-        </section>
-
-        <Divider />
-
-        <section id="works" ref={worksRef.ref} className="h-screen w-full px-4">
+        <section id="works" className="h-dvh w-full">
           <Works />
         </section>
 
         <Divider />
 
-        <section id="experiences" ref={experiencesRef.ref} className="h-screen w-full px-4">
+        <section id="experiences" className="h-dvh w-full">
           <Experiences />
         </section>
-
-        <Footer />
       </main>
+
+      <Footer />
     </ThemeProvider>
   );
 };

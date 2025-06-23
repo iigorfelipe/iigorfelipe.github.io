@@ -17,7 +17,7 @@ export function ToggleGroupDemo({ childrens }: ToggleGroupDemoProps) {
   const { selectedSection, setSelectedSection } = useSelectedSectionStore();
 
   return (
-    <ToggleGroup type="single" size="sm" className="p-2">
+    <ToggleGroup type="single" size="sm">
       {childrens.map(({ children, onClick, tooltip, sectionId }) => (
         <TooltipDemo
           key={sectionId}
