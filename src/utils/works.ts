@@ -8,7 +8,7 @@ export const works = [
     desktopImg: WORK_6,
     mobileImg: WORK_6_MOBILE,
     githubLink: 'https://github.com/iigorfelipe/e-commerce',
-    appLink: 'iigorfelipe.github.io/e-commerce',
+    appLink: 'https://iigorfelipe.github.io/e-commerce/',
   },
   {
     title: 'Tree View',
