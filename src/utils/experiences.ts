@@ -1,3 +1,5 @@
+import { ATLAS_LOGO, GURU_LOGO, TRYBE_LOGO } from '@/assets';
+
 export type Log = {
   date: string;
   position: string;
@@ -29,7 +31,7 @@ export const experiences: ExperiencesType = {
       `Além do conhecimento técnico, a Trybe forma profissionais competentes e prontos para o mercado, enfatizando competências comportamentais como trabalho em equipe, resolução de problemas e adaptabilidade. Com um compromisso com a inclusão e diversidade, a Trybe conecta talentos a oportunidades valiosas, contribuindo para o fortalecimento da indústria de tecnologia.`,
     ],
     duration: 'ago de 2021 | ago de 2022',
-    logo: 'src/assets/logo-trybe.svg',
+    logo: TRYBE_LOGO,
     roleDetails: [
       'Aprofundamento nos fundamentos do desenvolvimento web, incluindo Git, Unix, Bash, HTML, CSS e JavaScript.',
       'Desenvolvimento de aplicações frontend utilizando TypeScript, React, React Hooks e React Router, com ênfase em acessibilidade e usabilidade.',
@@ -68,7 +70,7 @@ export const experiences: ExperiencesType = {
     companyName: 'Atlas - Segurança e Inteligência Logística',
     color: '#FF5618',
     duration: 'out de 2022 | jun de 2024',
-    logo: 'src/assets/logo-atlas.svg',
+    logo: ATLAS_LOGO,
     about: [
       `A Atlas atua no mercado de Segurança e Inteligência Logística, reconhecida pelo seu trabalho em
         proteger operações logísticas por meio de soluções tecnológicas de ponta. Atuando desde 2004, a
@@ -106,7 +108,7 @@ export const experiences: ExperiencesType = {
     companyName: 'Meu Guru - Tecnologia Educacional',
     color: '#7A00C6',
     duration: 'dez de 2024 | mai de 2025',
-    logo: 'src/assets/logo-meuguru.svg',
+    logo: GURU_LOGO,
     about: [
       `O Meu Guru é uma plataforma focada na educação personalizada por meio da tecnologia, conectando alunos e tutores de forma eficiente e intuitiva. A empresa desenvolve soluções que melhoram a experiência de aprendizado, combinando tecnologia de ponta com design centrado no usuário.`,
       `Com projetos voltados tanto para alunos quanto para professores, a equipe do Meu Guru atua com foco em performance, escalabilidade e usabilidade, investindo em tecnologias modernas e boas práticas de desenvolvimento mobile.`,
