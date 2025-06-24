@@ -36,12 +36,12 @@ const ShowMobile = ({ title, mobileImg }: ShowMobileProps) => {
           position: hasAnimated ? 'static' : 'absolute',
           visibility: hasAnimated ? 'visible' : 'hidden',
         }}
-        className="w-full h-fit px-5"
+        className="h-fit max-w-[35.9375rem] mx-auto"
       >
         <img
           src={mobileImg}
           alt={`${title} mobile illustration`}
-          className="w-full h-fit drop-shadow-custom "
+          className="h-fit drop-shadow-custom "
           loading="lazy"
         />
       </figure>
@@ -49,22 +49,10 @@ const ShowMobile = ({ title, mobileImg }: ShowMobileProps) => {
   );
 };
 
-/*
-  
-  xs: '320px',
-  sm: '480px',
-  md: '768px',
-  lg: '1280px',
-  xl: '1366px',
-  '2xl': '1440px',
-  '3xl': '1728px',
-  '4xl': '1920px',
-  */
-
 export const Works = () => {
   return (
-    <Carousel className="flex items-stretch md:items-center  h-full py-12 xl:py-0">
-      <CarouselContent>
+    <Carousel className="flex items-stretch md:items-center h-full py-12 xl:py-0">
+      <CarouselContent className="pb-12">
         {works.map((work) => (
           <CarouselItem key={work.title}>
             <div className="items-center gap-6 justify-center flex flex-col ">

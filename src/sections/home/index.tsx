@@ -12,7 +12,7 @@ import { useMemo } from 'react';
 export const Home = () => {
   const { elementRef, isVisible } = useElementVisibility({ threshold: 0.5 });
 
-  const isMobile = useMediaQuery('(max-width: 499px)');
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const backgroundImage = useMemo(() => (isMobile ? 'none' : `url(${BG_3})`), [isMobile]);
 
@@ -21,7 +21,7 @@ export const Home = () => {
       className={cn(
         'relative flex flex-col items-center h-full sm:items-start gap-14',
         'bg-no-repeat bg-[position:50%_100%] md:bg-[position:100%_100%]',
-        'bg-[length:60%] lg:bg-[length:40%] 2xl:bg-[length:50%] 3xl:bg-contain bg-bottom',
+        'bg-[length:40%] lg:bg-[length:36%] bg-bottom',
       )}
       style={{ backgroundImage }}
     >

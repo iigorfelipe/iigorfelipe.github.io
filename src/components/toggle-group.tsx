@@ -29,7 +29,7 @@ export function ToggleGroupDemo({ childrens }: ToggleGroupDemoProps) {
                 setSelectedSection(sectionId);
                 onClick();
               }}
-              className={`${selectedSection === sectionId ? 'bg-secondary' : ''}`}
+              className={`${childrens.length > 2 && selectedSection === sectionId ? 'bg-secondary' : ''}`}
             >
               {children}
             </ToggleGroupItem>
