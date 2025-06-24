@@ -14,20 +14,20 @@ export const App = () => {
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <Header />
 
-      <main className="flex flex-col px-2 sm:px-4 md:px-6 lg:px-8 2xl:px-20 gap-6 md:gap-12">
-        <section id="home" className="h-[calc(100dvh-4.5rem)] pt-6 2xl:pt-12 w-full ">
+      <main className="flex flex-col px-2 sm:px-4 md:px-6 lg:px-8 2xl:px-20 gap-12 pt-6 2xl:pt-12">
+        <section id="home">
           <Home />
         </section>
 
         <Divider />
 
-        <section id="works" className="h-dvh w-full">
+        <section id="works">
           <Works />
         </section>
 
         <Divider />
 
-        <section id="experiences" className="h-dvh w-full">
+        <section id="experiences">
           <Experiences />
         </section>
       </main>

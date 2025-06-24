@@ -76,7 +76,7 @@ export const DialogDemo = memo(({ companyDetail }: CardProps) => {
 const Card = memo(({ companyDetail, log }: CardProps) => {
   return (
     <div className="flex items-center gap-2 xl:gap-4 p-2 rounded-md bg-secondary/50 md:bg-transparent">
-      <picture className="size-16 xl:size-20">
+      <picture className="size-16 lg:size-20 2xl:size-24">
         <img
           src={companyDetail.logo}
           alt={`Logo of ${companyDetail.companyName}`}
@@ -85,7 +85,7 @@ const Card = memo(({ companyDetail, log }: CardProps) => {
       </picture>
 
       <div className="flex md:flex-col flex-row gap-1 justify-between items-center md:items-start w-full ">
-        <div className="flex flex-col w-fit text-xs sm:text-sm">
+        <div className="flex flex-col w-fit text-xs sm:text-sm lg:text-base">
           <span className="font-medium">{log?.date}</span>
           <span>{log?.position}</span>
         </div>
@@ -99,15 +99,15 @@ const Card = memo(({ companyDetail, log }: CardProps) => {
 export const Experiences = memo(() => {
   const { elementRef, isVisible } = useElementVisibility({ threshold: 0.4 });
 
-  const isMobile = useMediaQuery('(max-width: 499px)');
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const backgroundImage = useMemo(() => (isMobile ? 'none' : `url(${BG_2})`), [isMobile]);
 
   const allLogs = experiencesArray.flatMap((experience, index) =>
-    experience.log.map((log) => ({
+    experience.log.map((log, indexLog) => ({
       log,
       companyDetail: experience,
-      key: `${experience.companyName}-${index}}`,
+      key: `${experience.companyName}-${index + indexLog}`,
     })),
   );
 
@@ -117,29 +117,25 @@ export const Experiences = memo(() => {
   return (
     <div
       className={cn(
-        'flex flex-col w-full h-full justify-center md:justify-start md:pt-6 2xl:pt-12',
+        'flex flex-col w-full min-h-screen py-12 overflow-hidden',
         'bg-no-repeat bg-[position:50%_100%] md:bg-[position:100%_100%]',
-        'bg-[length:60%] xl:bg-[length:40%] 2xl:bg-[length:50%] sm-bottom',
+        'bg-[length:40%] sm-bottom',
       )}
       style={{ backgroundImage }}
     >
       <div
-        className="grid md:grid-cols-2 gap-3 xl:gap-4 w-fit"
+        className={cn(
+          'grid md:grid-cols-2 mx-auto md:mx-0 gap-3 xl:gap-4 2xl:gap-6 w-fit transition-all duration-1000 ease-in-out',
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-24',
+        )}
         ref={elementRef}
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateX(0)' : 'translateX(-100px)',
-          transition: 'transform 1.2s ease-in-out, opacity 1.2s ease-in-out',
-          position: isVisible ? 'static' : 'absolute',
-          visibility: isVisible ? 'visible' : 'hidden',
-        }}
       >
-        <div className="flex flex-col gap-3 xl:gap-4">
+        <div className="flex flex-col gap-3 xl:gap-4 2xl:gap-6">
           {firstColumnItems.map(({ log, companyDetail, key }) => (
             <Card key={key} log={log} companyDetail={companyDetail} />
           ))}
         </div>
-        <div className="flex flex-col gap-3 xl:gap-4 ">
+        <div className="flex flex-col gap-3 xl:gap-4 2xl:gap-6">
           {secondColumnItems.map(({ log, companyDetail, key }) => (
             <Card key={key} log={log} companyDetail={companyDetail} />
           ))}
