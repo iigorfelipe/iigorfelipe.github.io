@@ -8,7 +8,7 @@ type TooltipDemoProps = {
 
 export function TooltipDemo({ children, tooltip }: TooltipDemoProps) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={200}>
       <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent>
