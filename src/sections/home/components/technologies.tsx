@@ -1,4 +1,18 @@
-import { CSS, HTML, FIGMA, GIT, JS, MONGO_DB, MY_SQL, NEXT_JS, NODE_JS, REACT, TAILWIND, TS } from '@/assets';
+import {
+  CSS,
+  HTML,
+  FIGMA,
+  GIT,
+  JS,
+  MONGO_DB,
+  MY_SQL,
+  NEXT_JS,
+  NODE_JS,
+  REACT,
+  TAILWIND,
+  TS,
+  SVELTE,
+} from '@/assets';
 
 const techs = [
   { name: 'HTML', icon: HTML },
@@ -6,6 +20,7 @@ const techs = [
   { name: 'JavaScript', icon: JS },
   { name: 'TypeScript', icon: TS },
   { name: 'React', icon: REACT },
+  { name: 'Svelte', icon: SVELTE },
   { name: 'TailwindCSS', icon: TAILWIND },
   { name: 'Git', icon: GIT },
   { name: 'MongoDB', icon: MONGO_DB },
