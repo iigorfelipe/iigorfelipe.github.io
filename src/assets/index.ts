@@ -11,6 +11,7 @@ import NODE_JS from './node-js.svg?react';
 import REACT from './react.svg?react';
 import TAILWIND from './tailwind.svg?react';
 import FIGMA from './figma.svg?react';
+import SVELTE from './svelte.svg?react';
 
 // social contact
 import ZAP from './zap.svg?react';
@@ -50,6 +51,7 @@ export {
   REACT,
   TAILWIND,
   FIGMA,
+  SVELTE,
   BG_1,
   BG_2,
   BG_3,
