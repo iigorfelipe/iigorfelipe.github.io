@@ -72,12 +72,12 @@ export const Contacts = ({ isVisible = true }: ContactsProps) => {
                 variant="ghost"
                 size="icon"
                 style={buttonStyle(0.1)}
-                onClick={() => handleOpenLink(LINK.linkedin)}
+                onClick={() => handleOpenLink(LINK.github)}
               >
                 <GITHUB name="github icon" className="size-4 lg:size-5" />
               </Button>
             }
-            tooltip="Linkedin"
+            tooltip="Github"
           />
 
           <TooltipDemo
@@ -86,12 +86,12 @@ export const Contacts = ({ isVisible = true }: ContactsProps) => {
                 variant="ghost"
                 size="icon"
                 style={buttonStyle(0.2)}
-                onClick={() => handleOpenLink(LINK.github)}
+                onClick={() => handleOpenLink(LINK.linkedin)}
               >
                 <LinkedInLogoIcon className="size-[1.0625rem] lg:size-5" />
               </Button>
             }
-            tooltip="Github"
+            tooltip="Linkedin"
           />
 
           <TooltipDemo
