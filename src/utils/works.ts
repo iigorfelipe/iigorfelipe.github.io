@@ -1,4 +1,14 @@
-import { WORK_1, WORK_2, WORK_3, WORK_4, WORK_5, WORK_6, WORK_6_MOBILE } from '@/assets';
+import {
+  WORK_1,
+  WORK_2,
+  WORK_3,
+  WORK_4,
+  WORK_5,
+  WORK_6,
+  WORK_6_MOBILE,
+  WORK_7,
+  WORK_7_MOBILE,
+} from '@/assets';
 
 export const works = [
   {
@@ -9,6 +19,15 @@ export const works = [
     mobileImg: WORK_6_MOBILE,
     githubLink: 'https://github.com/iigorfelipe/e-commerce',
     appLink: 'https://iigorfelipe.github.io/e-commerce/',
+  },
+  {
+    title: 'Plataforma de Cursos',
+    description:
+      'Plataforma de criação e gerenciamento de cursos com interface moderna, responsiva e recursos interativos.',
+    desktopImg: WORK_7,
+    mobileImg: WORK_7_MOBILE,
+    githubLink: 'https://github.com/iigorfelipe/course-plataform',
+    appLink: 'https://course-plataform-xi.vercel.app/',
   },
   {
     title: 'Tree View',
