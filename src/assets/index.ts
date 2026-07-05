@@ -32,7 +32,7 @@ import WORK_4 from './work-4.jpg';
 import WORK_5 from './work-5.jpg';
 import WORK_6 from './work-6.jpg';
 import WORK_6_MOBILE from './work-6-mobile.png';
-import WORK_7 from './work-7.jpg';
+import WORK_7 from './work-7.png';
 import WORK_7_MOBILE from './work-7-mobile.png';
 
 // logos

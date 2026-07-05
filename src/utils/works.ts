@@ -21,13 +21,13 @@ export const works = [
     appLink: 'https://iigorfelipe.github.io/e-commerce/',
   },
   {
-    title: 'Plataforma de Cursos',
+    title: 'Treevera',
     description:
-      'Plataforma de criação e gerenciamento de cursos com interface moderna, responsiva e recursos interativos.',
+      'Plataforma interativa para explorar a árvore da vida, com taxonomia, espécies, fotos, mapas, conservação e desafios.',
     desktopImg: WORK_7,
     mobileImg: WORK_7_MOBILE,
-    githubLink: 'https://github.com/iigorfelipe/course-plataform',
-    appLink: 'https://course-plataform-xi.vercel.app/',
+    githubLink: 'https://github.com/iigorfelipe/treevera',
+    appLink: 'https://treevera.org/',
   },
   {
     title: 'Tree View',
