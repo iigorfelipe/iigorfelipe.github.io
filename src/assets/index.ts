@@ -39,6 +39,7 @@ import WORK_7_MOBILE from './work-7-mobile.png';
 import TRYBE_LOGO from './logo-trybe.svg';
 import ATLAS_LOGO from './logo-atlas.svg';
 import GURU_LOGO from './logo-meuguru.svg';
+import REGISTRORURAL_LOGO from './logo-registrorural.svg';
 
 export {
   HTML,
@@ -73,4 +74,5 @@ export {
   TRYBE_LOGO,
   ATLAS_LOGO,
   GURU_LOGO,
+  REGISTRORURAL_LOGO,
 };

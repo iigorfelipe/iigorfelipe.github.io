@@ -1,4 +1,4 @@
-import { ATLAS_LOGO, GURU_LOGO, TRYBE_LOGO } from '@/assets';
+import { ATLAS_LOGO, GURU_LOGO, REGISTRORURAL_LOGO, TRYBE_LOGO } from '@/assets';
 
 export type Log = {
   date: string;
@@ -19,6 +19,7 @@ type ExperiencesType = {
   trybeExperience: CompanyDetail;
   atlasExperience: CompanyDetail;
   meuguruExperience: CompanyDetail;
+  registroruralExperience: CompanyDetail;
 };
 
 export const experiences: ExperiencesType = {
@@ -124,6 +125,35 @@ export const experiences: ExperiencesType = {
       {
         date: 'dez de 2024',
         position: 'Desenvolvedor Mobile',
+      },
+    ],
+  },
+
+  registroruralExperience: {
+    companyName: 'Registro Rural',
+    color: '#24B251',
+    about: [
+      `A Registro Rural é uma plataforma de tecnologia para consulta, análise e gestão de imóveis rurais, reunindo dados oficiais de fontes como CAR, INCRA/SNCR, SIGEF, CAFIR, IBAMA e bases ambientais em uma experiência voltada para produtores, profissionais do agro e equipes jurídicas ou técnicas.`,
+      `A empresa combina mapas, relatórios, monitoramento, CRM e pipelines de dados para transformar informações fundiárias e ambientais em ferramentas práticas de tomada de decisão, regularização, prospecção e acompanhamento de propriedades rurais.`,
+    ],
+    duration: 'set de 2025 | atual',
+    logo: REGISTRORURAL_LOGO,
+    roleDetails: [
+      'Atuo no desenvolvimento backend da plataforma principal em Django, evoluindo endpoints, regras de negócio, relatórios, páginas de imóveis rurais, áreas salvas e fluxos internos do painel do usuário.',
+      'Trabalho na integração e enriquecimento de dados geoespaciais de bases rurais e ambientais, incluindo CAR, SIGEF, SNCR/INCRA, PRODES, DETER, embargos do IBAMA e camadas territoriais.',
+      'Desenvolvo e mantenho pipelines de engenharia de dados com Airflow, Kafka, S3, Elasticsearch/OpenSearch e BigQuery para coleta, transformação, indexação e monitoramento de grandes volumes de dados.',
+      'Implementei melhorias de confiabilidade em ingestões, como processamento em lote, retries, saneamento de geometrias inválidas, tratamento de timeouts, validação de respostas HTTP e alertas operacionais.',
+      'Participo da evolução de funcionalidades de produto, como mapas, downloads de KML/KMZ, relatórios, monitoramento de CAR, assinaturas, add-ons e integrações com Stripe.',
+    ],
+
+    log: [
+      {
+        date: 'set de 2025',
+        position: 'Desenvolvedor Backend',
+      },
+      {
+        date: '2026 | atual',
+        position: 'Engenheiro de Dados',
       },
     ],
   },
